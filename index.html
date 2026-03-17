@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Trading Journal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1>Edge Trading Journal</h1>
+        <p>Professional, Advanced, Dark-Themed Trading Journal</p>
+    </header>
+    <main>
+        <button onclick="location.href='login.html'">Login / Register</button>
+        <button onclick="location.href='login.html'">Guest Mode</button>
+        <p>Track your trades, profits, and performance securely online.</p>
+    </main>
+    <footer>
+        <p>© 2026 Edge Trading Journal</p>
+    </footer>
+    <script>
+        // PWA prompt for install
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const btn = document.createElement('button');
+            btn.textContent = 'Install App';
+            btn.onclick = () => {
+                deferredPrompt.prompt();
+            };
+            document.body.appendChild(btn);
+        });
+    </script>
+</body>
+</html>
