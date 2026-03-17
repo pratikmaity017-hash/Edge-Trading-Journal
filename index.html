@@ -1,38 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edge Trading Journal</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edge Trading Journal Pro</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Edge Trading Journal</h1>
-        <p>Professional, Advanced, Dark-Themed Trading Journal</p>
-    </header>
-    <main>
-        <button onclick="location.href='login.html'">Login / Register</button>
-        <button onclick="location.href='login.html'">Guest Mode</button>
-        <p>Track your trades, profits, and performance securely online.</p>
-    </main>
-    <footer>
-        <p>© 2026 Edge Trading Journal</p>
-    </footer>
-    <script>
-        // PWA prompt for install
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            const btn = document.createElement('button');
-            btn.textContent = 'Install App';
-            btn.onclick = () => {
-                deferredPrompt.prompt();
-            };
-            document.body.appendChild(btn);
-        });
-    </script>
+
+<!-- LOGIN -->
+<div id="loginPage">
+    <div class="login-box">
+        <h2>Login</h2>
+        <input id="username" placeholder="Enter Username">
+        <button onclick="login()">Login</button>
+    </div>
+</div>
+
+<!-- APP -->
+
+<input type="text" id="pair" placeholder="Trade Pair (e.g. BTC/USDT)">
+
+<div id="app">
+
+<h2>📊 Trading Journal</h2>
+
+<div class="card">
+    <h3>Add Trade</h3>
+    <input type="date" id="date">
+    <input type="number" id="entry" placeholder="Entry Price">
+    <input type="number" id="exit" placeholder="Exit Price">
+    <input type="number" id="qty" placeholder="Quantity">
+    <input type="text" id="notes" placeholder="Trade Notes">
+    <button onclick="addTrade()">Save Trade</button>
+</div>
+
+<div class="card grid grid-3">
+    <div>
+        <h4>Daily P&L</h4>
+        <p id="daily"></p>
+    </div>
+    <div>
+        <h4>Monthly P&L</h4>
+        <p id="monthly"></p>
+    </div>
+    <div>
+        <h4>Yearly P&L</h4>
+        <p id="yearly"></p>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Trades</h3>
+    <div id="tradeList"></div>
+</div>
+
+<div class="card">
+    <h3>📅 Calendar P&L</h3>
+    <div class="calendar" id="calendar"></div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
